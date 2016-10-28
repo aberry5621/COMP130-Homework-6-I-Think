@@ -10,23 +10,50 @@
 #include <iomanip>
 using namespace std;
 
+
+const int ARR_X_SIZE = 10;
+const int ARR_Y_SIZE = 10;
+
+void prnt_arr(const int p_arr[][ARR_Y_SIZE], int x_size) {
+    
+    cout << "Printing array!" << endl;
+    
+    for (int i = 0; i < ARR_X_SIZE; i++) {
+        for (int j = 0; j < ARR_Y_SIZE; j++) {
+            cout << left << setw(12) << p_arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+    
+}
+
 int main() {
 
     cout << "Router Math!\n";
     
     // declare a 10 by 10 2d array
-    const int SIZE = 10;
-    int m_arr[][SIZE] = {0};
+    int matrix[ARR_X_SIZE][ARR_Y_SIZE];
     
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < SIZE; j++) {
+    for (int i = 0; i < ARR_X_SIZE; i++) {
+        for (int j = 0; j < ARR_Y_SIZE; j++) {
             if (j == 0) {
-                m_arr[i][j] = i + 1;
+                matrix[i][j] = i + 1;
+            } else {
+                matrix[i][j] = 1 + (rand() % 26);
             }
-            cout << setw(12) << m_arr[i][j] << " ";
         }
-        cout << endl;
     }
+    
+    prnt_arr(matrix, ARR_X_SIZE);
     
     return 0;
 }
+
+
+/*
+
+ 
+ 
+ 
+*/
