@@ -18,6 +18,12 @@ void prnt_arr(const int p_arr[][ARR_Y_SIZE], int x_size) {
     
     cout << "Printing array!" << endl;
     
+    // col heads
+    for (int i = 0; i < ARR_X_SIZE; i++) {
+        cout << left << "|==== " << i + 1 << " ====|" ;
+    }
+    cout << endl;
+    
     for (int i = 0; i < ARR_X_SIZE; i++) {
         for (int j = 0; j < ARR_Y_SIZE; j++) {
             cout << left << setw(12) << p_arr[i][j] << " ";
@@ -26,6 +32,21 @@ void prnt_arr(const int p_arr[][ARR_Y_SIZE], int x_size) {
     }
     
     
+}
+
+void find_row_matches(const int p_arr[][ARR_Y_SIZE], int x_size) {
+    
+    for (int i = 1; i < ARR_X_SIZE; i++) {
+        cout << "searching i values: " << i << endl;
+        for (int j = 0; j < ARR_Y_SIZE; j++) {
+            cout << "searching j values: " << j << endl;
+            if (p_arr[i][j] == i + 1) {
+                cout << "found a match at p_arr[" << i << "][" << j << "]" << endl;
+                cout << "i val at match point: " << i << endl;
+                cout << "p_arr[i][j] val at match point: " << p_arr[i][j] << endl;
+            }
+        }
+    }
 }
 
 int main() {
@@ -46,6 +67,8 @@ int main() {
     }
     
     prnt_arr(matrix, ARR_X_SIZE);
+    
+    find_row_matches(matrix, ARR_X_SIZE);
     
     return 0;
 }
