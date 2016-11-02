@@ -31,11 +31,15 @@ void prnt_arr(const int p_arr[][ARR_Y_SIZE], int x_size) {
 }
 
 void find_row_matches(int p_arr[][ARR_Y_SIZE], int x_size) {
-    
-    for (int i = 1; i < ARR_X_SIZE; i++) {
+    for (int i = 0; i < ARR_X_SIZE; i++) {
         // cout << "searching i values: " << i << endl;
         for (int j = 0; j < ARR_Y_SIZE; j++) {
             // cout << "searching j values: " << j << endl;
+            for (int k = 1; k < j; k++) {
+                if (p_arr[i][k] == p_arr[i][j]) {
+                    p_arr[i][j] = 0;
+                }
+            }
             if (p_arr[i][j] >= 1 && p_arr[i][j] <= 10) {
                 if (j != 0) {
                     p_arr[i][j] = 0;
