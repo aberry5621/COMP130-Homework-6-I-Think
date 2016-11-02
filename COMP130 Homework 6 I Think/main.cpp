@@ -34,16 +34,22 @@ void prnt_arr(const int p_arr[][ARR_Y_SIZE], int x_size) {
     
 }
 
-void find_row_matches(const int p_arr[][ARR_Y_SIZE], int x_size) {
+void find_row_matches(int p_arr[][ARR_Y_SIZE], int x_size) {
     
     for (int i = 1; i < ARR_X_SIZE; i++) {
-        cout << "searching i values: " << i << endl;
+        // cout << "searching i values: " << i << endl;
         for (int j = 0; j < ARR_Y_SIZE; j++) {
-            cout << "searching j values: " << j << endl;
+            // cout << "searching j values: " << j << endl;
             if (p_arr[i][j] == i + 1) {
-                cout << "found a match at p_arr[" << i << "][" << j << "]" << endl;
-                cout << "i val at match point: " << i << endl;
-                cout << "p_arr[i][j] val at match point: " << p_arr[i][j] << endl;
+                
+                //cout << "i val at match point: " << i << endl;
+                //cout << "p_arr[i][j] val at match point: " << p_arr[i][j] << endl;
+                
+                if (j != 0) {
+                    cout << "found a match at p_arr[" << i << "][" << j << "]..." << endl;
+                    cout << "setting p_arr[i][j] to zero " << endl;
+                    p_arr[i][j] = 0;
+                }
             }
         }
     }
@@ -66,9 +72,14 @@ int main() {
         }
     }
     
+    cout << "Random Number Connections for Routers 1-10\n";
     prnt_arr(matrix, ARR_X_SIZE);
     
+    cout << "Zero Matches for 1-10\n";
     find_row_matches(matrix, ARR_X_SIZE);
+    prnt_arr(matrix, ARR_X_SIZE);
+    
+    cout << "Router Neighbors Report 1-10\n";
     
     return 0;
 }
