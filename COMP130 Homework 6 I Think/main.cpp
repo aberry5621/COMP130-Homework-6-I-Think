@@ -14,8 +14,6 @@ using namespace std;
 // globular variables and settings
 const int ARR_X_SIZE = 10;
 const int ARR_Y_SIZE = 10;
-// seed random
-srand(time(0));
 
 void prnt_arr(const int p_arr[][ARR_Y_SIZE], int x_size) {
     // col heads
@@ -61,7 +59,10 @@ void report_neighbors(const int p_arr[][ARR_Y_SIZE], int x_size) {
 
 int main() {
 
-    cout << "Router Neighbors Finder\n";
+    cout << "Router Neighbors Simulator\n";
+    
+    // seed random
+    srand(static_cast<int>(time(0)));
     
     // declare a 10 by 10 2d array
     int matrix[ARR_X_SIZE][ARR_Y_SIZE];
@@ -88,11 +89,3 @@ int main() {
     cout << endl;
     return 0;
 }
-
-
-/*
-
- 
- 
- 
-*/
